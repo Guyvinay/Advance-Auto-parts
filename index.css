@@ -65,6 +65,30 @@
     border: none;
     margin: 1px;
  }
+#nav1C > button >a{
+    text-decoration: none;
+    color: #454444;
+}
+#drop{
+    position: relative;
+    display: inline-block;
+}
+#drop :hover #dropdown_content{
+    display:block;
+}
+#dropdown_content{
+    display: none;
+    position: absolute;
+    z-index: 1;
+
+}
+#dropdown_content>a{
+    color: #191818;
+    display: block;
+    text-decoration: none;
+    padding: 20px;
+    background-color: #ebe5e5;
+}
 #searchdiv{
     width: 80%;  
 }

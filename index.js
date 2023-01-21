@@ -1,3 +1,4 @@
+let lsData = JSON.parse(localStorage.getItem("cart")) || [];
 let api = "./obj_data/object1.json"
 async function fetchData(){
       try{
@@ -33,7 +34,12 @@ function display(data){
         rating.innerText =  ele.rating;
         btn.innerText = "Add to Cart"
         bkmk.innerText = "Bookmark"
+   
 
+        btn.addEventListener("click",()=>{
+           lsData.push(ele);
+           localStorage.setItem("cart", JSON.stringify())
+        })
 
 
         card.append(img,ctg,dscr,price,rating,btn,bkmk)
