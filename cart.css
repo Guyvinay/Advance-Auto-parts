@@ -53,17 +53,22 @@
     display: flex;
   justify-content: space-around;
  }
- #p1bnav > div >button{
+ #p1bnav > div > button{
     padding: 6px;
     margin: 1px;
     height: 33px;
     border: none;
     border-radius: 5px;
  }
- #nav1C > button{
+ #nav1C >div> button{
     height: 40px;
     border: none;
     margin: 1px;
+ }
+ #nav1C >div> button:hover{
+    height: 45px;
+    margin: 2px;
+    background-color: rgb(161, 229, 229);
  }
 #nav1C > button >a{
     text-decoration: none;
@@ -108,4 +113,15 @@
     padding: 15px;
     line-height: 20px;
     
+}
+#show_data >div>button{
+    margin: 3px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: teal;
+    color: white;   
+}
+#show_data >div>button:hover{
+    background-color: #1d1a2a;
 }

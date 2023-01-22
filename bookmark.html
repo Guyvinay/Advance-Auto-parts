@@ -6,6 +6,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./cart.css">
+    <style>
+        #nav1A{
+    width: 100%;
+    text-align: center;
+    /* border: 1px solid red; */
+    background-color: rgb(251,209,48);
+    /* position: fixed; */
+}
+#nav1A > span:nth-child(1){
+    font-size: 15px;
+    margin-right: 15px;
+}
+#nav1A > span:nth-child(2){
+   border: 2px solid rgb(30, 25, 25);
+    border-radius: 4px;
+    margin-right: 15px;
+}
+#nav1A > span:nth-child(3){
+   text-decoration: underline;
+   font-size: 13px;
+ }
+#nav1A > span:nth-child(4){
+    font-size: 25px;
+    text-align: end;
+    margin-left: 20%;
+
+ }
+ #nav1B{
+    display: flex;
+    background-color: rgb(69, 68, 68);
+    justify-content: space-between;
+    align-items: center;
+ }
+ #p1anav{
+   padding-left: 15px;
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+    width: 75%;
+    align-items: center;
+ }
+ #search{
+    border: none;
+    width:100%;
+    
+ }
+ #select{
+   border-radius: 5px;
+   background-color: rgb(251,209,48);
+    padding: 10px 15px 10px 15px;
+ }
+ #p1bnav{
+    display: flex;
+  justify-content: space-around;
+ }
+ #p1bnav > div > button{
+    padding: 6px;
+    margin: 1px;
+    height: 33px;
+    border: none;
+    border-radius: 5px;
+ }
+ #nav1C >div> button{
+    height: 40px;
+    border: none;
+    margin: 1px;
+ }
+ #nav1C >div> button:hover{
+    height: 45px;
+    margin: 2px;
+    background-color: rgb(161, 229, 229);
+ }
+#nav1C > button >a{
+    text-decoration: none;
+    color: #454444;
+}
+#drop{
+    position: relative;
+    display: inline-block;
+}
+#drop :hover #dropdown_content{
+    display:block;
+}
+#dropdown_content{
+    display: none;
+    position: absolute;
+    z-index: 1;
+
+}
+#dropdown_content>a{
+    color: #191818;
+    display: block;
+    text-decoration: none;
+    padding: 20px;
+    background-color: #ebe5e5;
+}
+#searchdiv{
+    width: 80%;  
+}
+#show_data{
+   
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 20px;
+}
+#show_data > div{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    text-align: center;
+    border-radius: 15px;
+    background-color: #f9f2f2;
+    padding: 15px;
+    line-height: 20px;
+    
+}
+#show_data >div>button{
+    margin: 3px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: teal;
+    color: white;   
+}
+    </style>
 </head>
 <body>
     <div id="nav1A">
@@ -230,7 +356,6 @@
                
 </div> 
 <!-- Navigation Bar ends here -->
-<div><h2>You Have total :- <span id="items">0</span>-: Items in Your Cart</h2></div>
 <div id="show_data"></div>
 </body>
 <script>
@@ -239,48 +364,38 @@ let lsData = JSON.parse(localStorage.getItem("cart")) || [];
 console.log(lsData)
 display(lsData)
 
-document.getElementById("items").innerText = lsData.length;
 
 function display(data){
-div.innerHTML = "";
-    data.forEach((ele,ind)=>{
 
-        let card = document.createElement("div");
-        let img = document.createElement("img");
-        let ctg = document.createElement("h3");      
-        let dscr = document.createElement("p");
-        let price = document.createElement("p");
-        let rating = document.createElement("p");
-        let btn = document.createElement("button")
-        
+data.forEach((ele)=>{
 
-        img.src = ele.imgae;
-        ctg.innerText = ele.category;
-        dscr.innerText = ele.description;
-        price.innerText = ele.price;
-        rating.innerText =  ele.rating;
-        btn.innerText = "Remove from cart";
+    let card = document.createElement("div");
+    let img = document.createElement("img");
+    let ctg = document.createElement("h3");      
+    let dscr = document.createElement("p");
+    let price = document.createElement("h4");
+    let rating = document.createElement("h4");
+    let btn = document.createElement("button");
 
-        btn.addEventListener("click",()=>{
-            lsData = lsData.filter((e,i)=>{
-                if(e === ele){
-                    return false;
-                }
-                return true
-            });
+    img.src = ele.imgae;
+    ctg.innerText = ele.category;
+    dscr.innerText = ele.description;
+    price.innerText = ele.price;
+    rating.innerText =  ele.rating;
+    btn.innerText = "Add to Cart"
+  
 
-            localStorage.setItem("cart",JSON.stringify(lsData))
-            document.getElementById("items").innerText = lsData.length;
-            display(lsData)
+    btn.addEventListener("click",()=>{
+        let LsData =JSON.parse(localStorage.getItem("cart")) || [];
+           LsData.push(ele)
+           console.log(ele)
+           localStorage.setItem("cart", JSON.stringify(LsData))
         })
 
-
-
-        card.append(img,ctg,dscr,price,rating,btn)
-        div.append(card)
-    })
+    card.append(img,ctg,dscr,price,rating,btn)
+    div.append(card)
+})
 }
-
 
   
 </script>

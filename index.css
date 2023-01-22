@@ -53,26 +53,36 @@
     display: flex;
   justify-content: space-around;
  }
- #p1bnav > div >button{
+ #p1bnav > div > button{
     padding: 6px;
     margin: 1px;
     height: 33px;
     border: none;
     border-radius: 5px;
  }
- #nav1C > button{
+ #nav1C >div> button{
     height: 40px;
     border: none;
     margin: 1px;
  }
-#nav1C > button >a{
+ #nav1C >div> button:hover{
+    height: 45px;
+    margin: 2px;
+    background-color: rgb(161, 229, 229);
+ }
+#nav1C >div> button  > a{
     text-decoration: none;
     color: #454444;
+}
+#nav1C > div  > button {
+    margin: 2px;
 }
 #drop{
     position: relative;
     display: inline-block;
+    
 }
+
 #drop :hover #dropdown_content{
     display:block;
 }
@@ -80,14 +90,15 @@
     display: none;
     position: absolute;
     z-index: 1;
-
+    margin-top: 15px;
 }
 #dropdown_content>a{
+    width: 300px;
     color: #191818;
     display: block;
     text-decoration: none;
-    padding: 20px;
-    background-color: #ebe5e5;
+    padding: 10px 50px 10px 10px ;
+    background-color: #e8d9ef;
 }
 #searchdiv{
     width: 80%;  
@@ -98,6 +109,7 @@
     margin-top: 20px;
 }
 #top_posterA{
+    width: 99%;
     display: flex;
    /* border: 1px solid yellow; */
    margin: 0px 15px 15px 15px;
@@ -105,6 +117,7 @@
    background-color: rgb(247, 239, 239);
 }
 #top_posterA>div{
+   
     margin-left: 15px;
 }
 #top_posterA>div>h1{
@@ -113,14 +126,31 @@
     font-size: 42px;
     line-height: 40px;
 }
+#top_posterA>div>h1:hover{
+    margin-top: 60px;
+    font-weight: 700px;
+     font-size: 44px;
+     line-height: 40px;
+}
+#top_posterA:hover{
+    width: 100%;
+    background-color: rgb(222, 249, 240);
+}
 #poster_img1>img{
     width: 100%;
 }
 #top_posterA>div>button{
-    background-color: rgb(255,204,0);
+    background-color: rgb(245, 215, 96);
     padding: 10px;
     border-radius: 8px;
     font-size: 20px;
+    border: none;
+}
+#top_posterA>div>button:hover{
+    background-color: rgb(248, 203, 26);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 22px;
     border: none;
 }
 #top_posterB {
@@ -180,12 +210,15 @@
     margin-top: 20px;
 }
 #top_categories1A > div{
-   
+   width: 100%;
     /* border: 1px solid red; */
     margin: auto;
     text-align: center;
     box-shadow: rgba(26, 26, 26, 0.25) 0px 14px 28px;
     border-radius: 15px;
+}
+#top_categories1A :hover{
+   width: 55%;
 }
 #top_categories1A > div>img{
     width: 50%;
@@ -209,6 +242,9 @@
     border-top-left-radius: 20px;
     border-bottom-color: rgb(251,209,48);
     padding-left: 15px;
+}
+#top_categories2A>div:hover{
+    width: 17%;
 }
 #top_categories2A>div>h3{
     color: rgb(251,209,48);
@@ -242,8 +278,14 @@
     /* padding-left: 10px; */
     text-align: center;
 }
+#under_the_hood1A > div:hover{
+    width: 25%;
+    background-color: rgb(181, 213, 202);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+}
 #under_the_hood1A > div>img{
-    width: 100%;
+    width: 90%;
 }
 #m_card1U{
     display: flex;
@@ -264,12 +306,16 @@
 #m_card1UL>div>img{
     width: 100%;
 }
+#m_card1UL>div>img:hover{
+    width: 105%;
+}
 #m_card1UR{
     width: 50%;
   
 }
 #m_card1UR>img:nth-child(1){
     margin-top: -40px;
+
 }
 #m_card1UR>img:nth-child(2){
     margin-left: 40px;
@@ -297,7 +343,7 @@
     color: rgb(251,209,48);
 }
 #m_card1L > div > div>p{
-    font-size: 18px;
+    font-size: 15px;
 }
 #under_the_hood>h2>span{
    margin-right: 5px;
@@ -390,7 +436,8 @@
     line-height: 35px;
 }
 #obj_1{
-    width: 90%;
+    
+    width: 95%;
     margin: auto;
     /* display: grid; */
     /* grid-template-columns: repeat(4,1fr);
@@ -401,14 +448,20 @@
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     line-height: 20px;
 }
-#obj_1 >div{
+#obj_1 > div{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     text-align: center;
     border-radius: 15px;
     background-color: #f9f2f2;
     padding: 15px;
-    line-height: 20px;
-    
+    margin-right: 25px;  
+}
+#obj_1 > div:hover{
+      background-color: rgb(202, 227, 219);
+}
+#obj_1 >div>h4{
+    display:  inline;
+    margin-left: 9px;
 }
 #obj_1 >div>button{
     margin: 3px;
@@ -418,6 +471,16 @@
     background-color: teal;
     color: white;   
 }
+#obj_1 >div>button:hover{
+    background-color: #1d1a2a;
+}
+#view_all{
+    margin-top: 40px;
+    text-align: center;
+    color: gray;
+    border: 2px solid gray; 
+}
+
 
 @media screen and (max-width:1024px)  {
     #searchdiv,#searchtag{
@@ -447,5 +510,12 @@
         flex-wrap: wrap;
         flex-direction: column;
     } */
-    
+    /* #m_card1L{
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    #recycle{
+        flex-wrap: wrap;
+        flex-direction: column;
+    } */
 }

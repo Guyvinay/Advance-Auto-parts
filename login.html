@@ -105,7 +105,29 @@
 #searchdiv{
     width: 80%;  
 }
+
+#form form input{
+    
+    width: 80%;
+    padding: 15px;
+}
+#signup{
+    text-align: center;
+}
+#nav1C > div  > button {
+    margin: 2px;
+}
+#formcont{
+    background-color: #e4dddd;
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    padding:  10px 0px 40px 0px;
+    border-radius: 8px;
+    text-align: center;
+}
 #form {
+   
    width: 60%;
    margin: auto;
    display: flex;
@@ -123,14 +145,6 @@
 }
 #signup{
     text-align: center;
-}
-#formcont{
-    background-color: #e4dddd;
-    width: 60%;
-    margin: auto;
-    margin-top: 20px;
-    padding-top: 15px;
-    border-radius: 8px;
 }
 
         
@@ -357,57 +371,60 @@
                  
                 </div>
             </button>
-         </div>
-                    
+         </div>       
     </div>  
-    <div id="formcont">
-        <h1  id="signup">Please Sign-up</h1>
+    <div id="formcont" >
+    <h1 id="signin">Please Sign-in</h1>
+    <div id="homepage"></div>
     <div id="form">
         <form >
             <input type="text" placeholder="Enter Your Good Name" id="name">
-            <input type="text" placeholder="Date of Your Incarnation" id="dob">
-            <input type="text" placeholder="Aadhar (not necc.)" id="aadhar">
-            <input type="text" placeholder="Age" id="age">
             <input type="email" placeholder="Enter Your Email Id" id="email">
             <input type="text" placeholder="Create Password" id="pass">
-            <input type="text" placeholder="Enter the same password" id="pass1">
+           
             <input type="submit">
         </form>
     </div>
 </div>
 </body>
+
 <script>
-    let formData = JSON.parse(localStorage.getItem("formdata")) || []
+
+    let formData = JSON.parse(localStorage.getItem("formdata"));
+
+    let filledData = JSON.parse(localStorage.getItem("filledData")) || [];
+
     let form = document.querySelector("form");
+    
     form.addEventListener("submit", (e)=>{
       e.preventDefault();
-      let formData = {
+      let filledData = {
         name:document.getElementById("name").value,
-        dob:document.getElementById("dob").value,
-        aadhar:document.getElementById("aadhar").value,
-        age:document.getElementById("age").value,
         email:document.getElementById("email").value,
         pass:document.getElementById("pass").value,
-        pass1:document.getElementById("pass1").value
+        
       }
-      let promise = new Promise(function (resolve,reject){
-          if(formData.pass === formData.pass1){
-             resolve("")
-          }else{
-            reject("Kindly enter Same Password")
-           
-          }
-      })
+      console.log(filledData);
+      localStorage.setItem("filledData",JSON.stringify(filledData));
 
-      promise.then((ele)=>{
-        document.getElementById("signup").innerText = "Your are Good To Go"
-      }).catch((err)=>{
-        alert(err)
-        document.getElementById("signup").innerText = "Kindly enter Same Password"
-      })
-      console.log(formData);
-      localStorage.setItem("formdata",JSON.stringify(formData));
-    
+      let promise = new Promise(function (resolve,reject){
+        if(formData.email === filledData.email && formData.pass === filledData.pass){
+            resolve("Entered Credentials is Correct")
+        }else{
+            reject("Entered Credentials is InCorrect")
+        }
     });
+     
+    promise.then((el)=>{
+        alert(el)
+        document.getElementById("signin").innerText = "Login Successful ! Welcome ";     
+    }).catch((err)=>{
+        alert(err);
+        document.getElementById("signin").innerText = "Login UnSuccessful ! NotWelcome ";
+    })
+
+    }); 
+
+ 
 </script>
 </html>
