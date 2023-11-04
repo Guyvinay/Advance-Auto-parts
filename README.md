@@ -8,7 +8,7 @@ This is a clone of a website named Advance Autoparts where we can purchase vario
 
 ## **Platform Access**
 
-Access the ExploreNature platform through **([project-grid-index.vercel.app/](https://project-grid.vercel.app/))**
+Access the ExploreNature platform through **https://guyvinay.github.io/Advance-Auto-parts/**
 
 ## **Feature Walkthrough**
 
